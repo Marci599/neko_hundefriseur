@@ -76,17 +76,45 @@ p.large{
     font-size: large;
 }
 
-.large-image{
-    width: 400px;
-    max-width: 400px;
+.large-image, .larger-image{
+
     min-width: none;
     border-radius: 25px;
     display: block;
     margin-right: 25px;
     align-self: flex-start;
+    object-fit: cover;
 }
 
+.large-image{
+    max-width: 300px;
+    width: 300px;
+    max-height: 300px;
+    height: 300px;
+}
 
+.margin-top{
+   margin-top: 15px;     
+}
+
+.larger-image{   
+    display: flex !important;
+    align-self: stretch !important;
+    flex: 1;
+    width: 0px;
+    height: 400px;
+    margin-right: 0;
+}
+
+.align-center{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
 
 body {
     padding: 0;
@@ -116,6 +144,7 @@ body {
 } 
 
 .main-div{
+
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -138,19 +167,46 @@ body {
 .div-content{
     padding-left: 10px;
     padding-right: 10px;
+    padding-bottom: 20px !important;
 }
 
+.icon{
+    width: 50px;
+    height: 50px;
+    object-fit:contain;
+    margin-right: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.align-hor{
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-text, .contact-text-right{
+    font-size: larger;
+    font-weight: 500;
+    align-self: center;
+
+}
+
+.contact-text{
 
 
+}
 
-
-
+.contact-text-right{
+    flex: 1;
+    text-align: right;
+}
 
 
 .main-body-div{
     overflow-y: scroll;
     height: calc(100vh - 136px);
     width: 100%;
+
 
 }
 
@@ -167,6 +223,7 @@ body {
     flex-direction: row;
    flex-wrap: nowrap;
    align-items: center;
+   width: 100%;
 }
 
 .toolbar-div{
@@ -204,14 +261,27 @@ ul.submenu{
     transition: transform 200ms;
 }
 
+.right-margin-on-size{
+    margin-right: 15px;
+}
+
 @media (max-width: 850px) {
 
-    .large-image{
+    .right-margin-on-size{
+        margin-right: 0px;
+    }
+
+    .large-image, .larger-image{
         width: 100%;
         margin-right: auto;
         margin-left: auto;
         margin-bottom: 15px;
 
+    }
+
+    .larger-image{
+        max-width: 100%;
+        min-height: 400px;
     }
 
     .main-body-div{
@@ -249,9 +319,27 @@ ul.submenu{
         margin-right: 66.66px;
     
     }
+
+ 
     
 
     @media (max-width: 500px) {
+
+        .large-image{
+            aspect-ratio: 1/1;
+            width:100%;
+            height: 100%;
+            min-width: 0px;
+            min-height: 0px;
+        }
+
+        .larger-image{
+            aspect-ratio: 3/2;
+            width: auto;
+            height: auto;
+            min-width: 0;
+            min-height: 0;
+        }
 
         .main-body-div{
             height: calc(100vh - 136px + 64px);    
@@ -396,20 +484,21 @@ input:checked~ul.submenu {
 h3{
     margin-bottom: 10px;
     font-weight:500;
+    margin-top: 50px;
     font-size: x-large;
 }
 
-button {
-    transition: background-color 200ms;
+button, .primary {
     cursor: pointer;
 
     margin-top: 15px;
 
+    width: fit-content;
 
-    background-color: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.5);    
+
+
     border-radius: 9999px;
-    color: #276678;
+
     padding: 12.5px 25px;
     text-align: center;
     text-decoration: none;
@@ -418,12 +507,37 @@ button {
     
   }
 
+  button{
+    transition: background-color 200ms;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.5);    
+    color: #276678;
+  }
+
   button:hover {
     background-color: rgba(0, 0, 0, 0.1);
   }
 
   button:active {
     background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .primary {
+    transition: filter 200ms;
+    border: none;  
+    background-color: #276678;   
+    color: white;
+    
+  }
+
+  .primary:hover {
+    background-color: #276678;   
+    filter: brightness(133%)
+  }
+
+  .primary:active {
+    background-color: #276678;   
+    filter: brightness(167%)
   }
 
 
